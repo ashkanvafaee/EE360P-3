@@ -1,0 +1,14 @@
+setmode T
+borrow Mike "Divergent"
+borrow Salley "The Count of Monte Cristo"
+borrow Ben "The Count of Monte Cristo"
+borrow chris "The Count of Monte Cristo"
+borrow ash "The Count of Monte Cristo"
+borrow Ben "The Letter"
+list Ben
+list chris
+list Mike
+return 3
+return 6
+list Ben
+exit

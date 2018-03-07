@@ -1,0 +1,8 @@
+setmode U
+borrow Mike "The Letter"
+borrow Mike "The Great Gatsby"
+borrow Mike "The Count of Monte Cristo"
+list Mike
+return 2
+list Mike
+exit
