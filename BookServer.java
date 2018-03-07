@@ -32,7 +32,7 @@ public class BookServer extends Thread{
 	static ArrayList<String> bookOrder = new ArrayList<>();
 	static BookServer lock = new BookServer();
 
-	public Socket s = new Socket();
+	public Socket s;
 	static AtomicInteger record_id = new AtomicInteger(1);
 	
 	public static DatagramSocket datasocket;
@@ -138,7 +138,10 @@ public class BookServer extends Thread{
 						
 						IdToUser.put(record_id.get(), tokens[1]);
 						record_id.set(record_id.get() + 1);	
-					}				
+					}
+					
+					
+					s.close();
 				}
 				
 				
@@ -153,6 +156,8 @@ public class BookServer extends Thread{
 						userRecord.get(IdToUser.get(Integer.parseInt(tokens[1]))).remove((Object)Integer.parseInt(tokens[1]));
 						pout.println(tokens[1] + " " + "is returned");
 					}
+					
+					s.close();
 			
 				}
 				
@@ -166,7 +171,9 @@ public class BookServer extends Thread{
 							pout.println( userRecord.get(tokens[1]).get(i) + " " + IdToBook.get(userRecord.get(tokens[1]).get(i)));
 						}
 						pout.println("done");
-					}		
+					}
+					
+					s.close();
 				}
 				
 				
@@ -177,6 +184,7 @@ public class BookServer extends Thread{
 					}
 					
 					pout.println("done");
+					s.close();
 				}
 				
 				else {
@@ -187,6 +195,7 @@ public class BookServer extends Thread{
 					}
 					
 					out.close();
+					s.close();
 				}
 				
 				

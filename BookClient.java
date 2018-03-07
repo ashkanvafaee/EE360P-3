@@ -67,14 +67,18 @@ public class BookClient {
 				}
         	  
         	  if(mode.equals("T")) {
-        		  server = new Socket(hostAddress, tcpPort);
+        		  server = new Socket(InetAddress.getByName(hostAddress), tcpPort);
+        		  //server = new Socket(hostAddress, tcpPort);
+
         		  din = new Scanner(server.getInputStream());
         		  pout = new PrintStream (server.getOutputStream());
         		  
         		  pout.println(tokens[0] + " " + tokens[1] + " " + book);
         		  
-        		  out.println(din.nextLine());  
+        		  out.println(din.nextLine()); 
+
         		  server.close();
+        		 
         	  }
         	  else {
         		  
@@ -108,7 +112,7 @@ public class BookClient {
             // appropriate responses form the server
         	  
         	  if(mode.equals("T")) {
-        		  server = new Socket(hostAddress, tcpPort);
+        		  server = new Socket(InetAddress.getByName(hostAddress), tcpPort);
         		  pout = new PrintStream (server.getOutputStream());   	
         		  din = new Scanner(server.getInputStream());
         		  pout.println(tokens[0] + " " + tokens[1]);
@@ -143,10 +147,11 @@ public class BookClient {
             // TODO: send appropriate command to the server and display the
         	  
         	  if(mode.equals("T")) {
-        		  server = new Socket(hostAddress, tcpPort);
+        		  server = new Socket(InetAddress.getByName(hostAddress), tcpPort);
         		  pout = new PrintStream (server.getOutputStream());   	
         		  din = new Scanner(server.getInputStream());
         		  pout.println(tokens[0]);
+
         		  
         		  String s = din.nextLine();
         		  
@@ -193,7 +198,7 @@ public class BookClient {
             // appropriate responses form the server
         	
         	  if(mode.equals("T")) {
-        		  server = new Socket(hostAddress, tcpPort);
+        		  server = new Socket(InetAddress.getByName(hostAddress), tcpPort);
         		  pout = new PrintStream (server.getOutputStream());   	
         		  din = new Scanner(server.getInputStream());
         		  pout.println(tokens[0] + " " + tokens[1]);
@@ -253,7 +258,7 @@ public class BookClient {
           } else if (tokens[0].equals("exit")) {
             // TODO: send appropriate command to the server 
         	  if(mode.equals("T")) {
-        		  server = new Socket(hostAddress, tcpPort);
+        		  server = new Socket(InetAddress.getByName(hostAddress), tcpPort);
         		  pout = new PrintStream (server.getOutputStream());   	
         		  pout.println(tokens[0]);
         		  
